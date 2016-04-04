@@ -9,6 +9,6 @@ public class DamselRescuingKnightTest {
 
     @Test
     public void embarkOnQuest() throws Exception {
-
+        //can't unit test it because of strong binding with RescueDamselQuest
     }
 }
