@@ -2,8 +2,11 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+       http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="knight" class="com.spring1.knight.BraveKnight">
         <constructor-arg ref="quest"/>
@@ -11,5 +14,20 @@
     <bean id="quest" class="com.spring1.quest.SlayingDragonQuest">
         <constructor-arg value="#{T(System).out}"/>
     </bean>
+    <bean id="minstrel" class="com.spring1.minstrel.Minstrel">
+        <constructor-arg value="#{T(System).out}"/>
+    </bean>
+
+    <!--Enabling aspects using annotations in java class-->
+    <aop:aspectj-autoproxy/>
+
+    <!--Doing exactly the same using only xml-->
+    <aop:config>
+        <aop:aspect ref="minstrel">
+            <aop:pointcut id="embark" expression="execution(* *.embarkOnQuest(..))"/>
+            <aop:before pointcut-ref="embark" method="singBeforeQuest"/>
+            <aop:after pointcut-ref="embark" method="singAfterQuest"/>
+        </aop:aspect>
+    </aop:config>
 
 </beans>
