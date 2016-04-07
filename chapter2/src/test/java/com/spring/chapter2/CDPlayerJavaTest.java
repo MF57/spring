@@ -1,7 +1,7 @@
 package com.spring.chapter2;
 
 import com.spring.chapter2.config.CDPlayerConfig;
-import com.spring.chapter2.soundsystem.CompactDisc;
+import com.spring.chapter2.soundsystem.cd.CompactDisc;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.spring.chapter2.soundsystem;
+package com.spring.chapter2.soundsystem.cd;
 
 import org.springframework.stereotype.Component;
 
