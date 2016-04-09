@@ -8,12 +8,16 @@ import org.springframework.stereotype.Component;
  * Created by mf57 on 07.04.2016.
  */
 @Component
-public class CdPlayer {
+public class CdPlayer implements MediaPlayer{
 
     private CompactDisc cd;
 
     @Autowired
     public CdPlayer(CompactDisc cd) {
         this.cd = cd;
+    }
+
+    public void play() {
+        cd.play();
     }
 }
